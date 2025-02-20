@@ -12,9 +12,29 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 class barangkeluarcontroller extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('barang.barangkeluar');
+        $query = barangkeluar::with(
+            'getstok',
+            'getpelanggan',
+            'getuser',
+        );
+
+        if ($request->filled('tanggal_awal')&& $request->filled('tanggal_akhir')) {
+            $query->whereBetween('tanggal_buat', [
+                $request->tanggal_awal,
+                $request->tanggal_akhir
+            ]);
+        }
+
+        $query->orderby('created_at', 'desc');
+        $getBarangKeluar = $query->paginate(10);
+        $getTotalPendapatan = barangkeluar::sum('sub_total');
+
+        return view('barang.barangkeluar',compact(
+            'getBarangKeluar',
+            'getTotalPendapatan'
+        ));
     }
 
     public function create()
@@ -38,7 +58,7 @@ class barangkeluarcontroller extends Controller
             ));
         }
 
-        $latestItem = barangkeluar::latest();
+        $latestItem = barangkeluar::latest()->first();
         $id = $latestItem->id;
         $date = $latestItem->created_at->format('d,m,Y');
         $kode_transaksi = 'TRK' . $id . '/' . $date;
