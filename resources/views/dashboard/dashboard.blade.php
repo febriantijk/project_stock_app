@@ -20,7 +20,7 @@
                         <h6 class="p-2 rounded text-dark" style="background-color: #ffff">Data Suplier</h6>
                         <div class="d-flex align-items-center justify-content-between">
                             <i class="bi bi-person-lines-fill custom-icon-size text-light"></i>
-                            <h3 class="mx-2 text-light">77</h3>
+                            <h3 class="mx-2 text-light">{{ $getsuplier }}</h3>
                         </div>
                         <div class="mt-2 text-end">
                             <a href="{{ url('/suplier') }}" class="btn btn_info">Lihat Data <i class="bi bi-eye"></i></a>
@@ -34,7 +34,7 @@
                         <h6 class="p-2 rounded text-dark" style="background-color: #ffff">Total Pelanggan</h6>
                         <div class="d-flex align-items-center justify-content-between">
                             <i class="bi bi-people custom-icon-size text-light"></i>
-                            <h3 class="mx-2 text-light">99</h3>
+                            <h3 class="mx-2 text-light">{{ $getpelanggan}}</h3>
                         </div>
                         <div class="mt-2 text-end">
                             <a href="{{ url('/pelanggan') }}" class="btn btn_info">Lihat Data <i class="bi bi-eye"></i></a>
@@ -48,7 +48,7 @@
                         <h6 class="p-2 rounded text-dark" style="background-color: #ffff">Data Stok</h6>
                         <div class="d-flex align-items-center justify-content-between">
                             <i class="bi bi-bag-check custom-icon-size text-light"></i>
-                            <h3 class="mx-2 text-light">97</h3>
+                            <h3 class="mx-2 text-light">{{ $getstok}}</h3>
                         </div>
                         <div class="mt-2 text-end">
                             <a href="{{ url('/stok') }}" class="btn btn_info">Lihat Data <i class="bi bi-eye"></i></a>
@@ -62,8 +62,8 @@
                         <h6 class="p-2 rounded text-dark" style="background-color: #ffff">Total Pendapatan</h6>
                         <div class="d-flex align-items-center justify-content-between">
                             <i class="bi bi-people-fill custom-icon-size text-light"></i>
-                            <h3 class="mx-2 text-light">75</h3>
-                            {{-- <h3 class="mx-2 text-light">{{ 'Rp ' . number_format($totalPendapatam, 0, ',', '.') }}</h3> --}}
+                            {{-- <h3 class="mx-2 text-light">75</h3> --}}
+                            <h3 class="mx-2 text-light">{{ 'Rp ' . number_format($getpendapatan, 0, ',', '.') }}</h3>
                         </div>
                         <div class="mt-2 text-end">
                             <a href="{{ url('/barang-keluar') }}" class="btn btn_info">Lihat Data <i class="bi bi-eye"></i></a>
