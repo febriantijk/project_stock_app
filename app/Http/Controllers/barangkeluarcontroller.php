@@ -176,5 +176,25 @@ class barangkeluarcontroller extends Controller
         ));
     }
 
+    public function destroy($id)
+    {
+        $delete = barangKeluar::find($id);
+            $getID_Barang_Keluar = $delete->barang_id;
+            $getJumlah_barang_Keluar = $delete->jumlah_beli;
+
+                $update = stok::find($getID_Barang_Keluar);
+                    $getStok = $update->stok;
+                    
+                    $jumlah_Baru = $getStok + $getJumlah_barang_Keluar;
+                $update->stok = $jumlah_Baru;
+                $update->save();
+        $delete->delete();
+
+        return redirect()->back()->with(
+            'message',
+            'Data berhasil dihapus!!'
+        );
+    }
+
 
 }

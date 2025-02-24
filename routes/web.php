@@ -119,9 +119,11 @@ Route::middleware(['auth', 'ceklevel:superadmin,admin'])->group(function(){
 
         Route::get('/barang-keluar/add', 'create');
         Route::post('/barang-keluar/add', 'store');
+        
 
         Route::post('/barang-keluar/save', 'savebarangkeluar')->name('addbarangkeluar');
         Route::get('/barang-keluar/print/{id}', 'print');
+        Route::get('/barang-keluar/{id}', 'destroy');
 
 
     });
