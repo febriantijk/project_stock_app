@@ -67,7 +67,6 @@ Route::middleware(['auth', 'ceklevel:superadmin,admin'])->group(function(){
     /**
      * ini routing pelanggan
      */
-
   Route::controller(pelanggancontroller::class)->group(function(){
 
     Route::get('/pelanggan', 'index');
@@ -84,7 +83,6 @@ Route::middleware(['auth', 'ceklevel:superadmin,admin'])->group(function(){
   /**
    * ini routing stok
    */
-
     Route::controller(stokcontroller::class)->group(function(){
 
         Route::get('/stok', 'index');
@@ -101,7 +99,6 @@ Route::middleware(['auth', 'ceklevel:superadmin,admin'])->group(function(){
     /**
      * ini routing barang masuk
      */
-
     Route::controller(Barangmasukcontroller::class)->group(function(){
         Route::get('/barang-masuk', 'index');
         Route::get('/barang-masuk/add', 'create');
@@ -117,15 +114,14 @@ Route::middleware(['auth', 'ceklevel:superadmin,admin'])->group(function(){
     /**
      * ini routing barang keluar
      */
-
-
     Route::controller(barangkeluarcontroller::class)->group(function(){
         Route::get('/barang-keluar', 'index');
-        
+
         Route::get('/barang-keluar/add', 'create');
         Route::post('/barang-keluar/add', 'store');
 
         Route::post('/barang-keluar/save', 'savebarangkeluar')->name('addbarangkeluar');
+        Route::get('/barang-keluar/print/{id}', 'print');
 
 
     });

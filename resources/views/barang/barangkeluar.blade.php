@@ -133,7 +133,7 @@
                                     <td>{{ 'Rp ' . number_format($item->sub_total, 0, ',', '.') }}</td>
                                     <td class="text-center">{{ $item->getUser->name }}</td>
                                     <td class="text-center" width="128px">{{ Carbon\Carbon::parse( $item->tgl_buat )->format('d/m/Y') }}</td>
-                                    <td class="text-center">{{ $item->cabang }}</td>
+                                    <td class="text-center">{{ $item->getstok->cabang }}</td>
                                     <td class="text-center">
                                         <a href="#" class="btn btn-success btn-sm print-nota" data-url="{{ url('/barang-keluar/print') }}/{{ $item->id }}" title="Cetak Nota">
                                             <i class="bi bi-printer"></i>

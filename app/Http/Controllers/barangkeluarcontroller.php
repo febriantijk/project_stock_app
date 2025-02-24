@@ -164,5 +164,17 @@ class barangkeluarcontroller extends Controller
             'barang keluar add'
         );
     }
+    public function print($id)
+    {
+        $dataPrint = barangkeluar::with(
+            'getstok',
+            'getpelanggan'
+        )->find($id);
+
+        return view('nota.nota', compact(
+            'dataPrint'
+        ));
+    }
+
 
 }
